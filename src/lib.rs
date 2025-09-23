@@ -80,7 +80,7 @@ mod test {
 
 /// A Python module implemented in Rust.
 #[pymodule]
-fn pyqmc(m: &Bound<'_, PyModule>) -> PyResult<()> {
+fn pyqmc_rust(m: &Bound<'_, PyModule>) -> PyResult<()> {
     m.add_class::<QMCv2Cipher>()?;
     Ok(())
 }
