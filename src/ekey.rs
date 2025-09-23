@@ -3,7 +3,7 @@ use lazy_static::lazy_static;
 use std::ops::Mul;
 use tc_tea::TcTeaError;
 use thiserror::Error;
-use umc_utils::base64;
+use utils::base64;
 
 /// Base64 encoded prefix: "QQMusic EncV2,Key:"
 const EKEY_V2_PREFIX: &[u8; 24] = b"UVFNdXNpYyBFbmNWMixLZXk6";

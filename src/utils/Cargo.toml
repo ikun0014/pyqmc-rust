@@ -1,6 +1,6 @@
 [package]
-name = "umc_utils"
-version = "0.1.12"
+name = "utils"
+version = "0.1.2"
 edition = "2021"
 
 [dependencies]
