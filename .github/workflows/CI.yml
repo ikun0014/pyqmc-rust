@@ -11,7 +11,7 @@ on:
       - main
       - master
     tags:
-      - "*"
+      - '*'
   pull_request:
   workflow_dispatch:
 
@@ -166,15 +166,11 @@ jobs:
       # Used to generate artifact attestation
       attestations: write
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: 3.x
       - uses: actions/download-artifact@v4
       - name: Generate artifact attestation
         uses: actions/attest-build-provenance@v2
         with:
-          subject-path: "wheels-*/*"
+          subject-path: 'wheels-*/*'
       - name: Publish to PyPI
         if: ${{ startsWith(github.ref, 'refs/tags/') }}
         uses: PyO3/maturin-action@v1
@@ -182,5 +178,5 @@ jobs:
           MATURIN_USERNAME: __token__
           MATURIN_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
         with:
-          command: publish
+          command: upload
           args: --non-interactive --skip-existing wheels-*/*

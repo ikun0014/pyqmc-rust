@@ -228,7 +228,7 @@ dependencies = [
 
 [[package]]
 name = "pyqmc_rust"
-version = "0.1.5"
+version = "0.1.6"
 dependencies = [
  "itertools",
  "lazy_static",
@@ -356,7 +356,7 @@ checksum = "7264e107f553ccae879d21fbea1d6724ac785e8c3bfc762137959b5802826ef3"
 
 [[package]]
 name = "utils"
-version = "0.1.5"
+version = "0.1.6"
 dependencies = [
  "base64",
  "md-5",
