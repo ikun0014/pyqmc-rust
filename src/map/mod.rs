@@ -3,8 +3,8 @@ use pyo3::types::PyByteArray;
 
 mod key;
 
-use crate::v1::cipher::{qmc1_transform, V1_KEY_SIZE};
 use crate::map::key::key_compress;
+use crate::v1::cipher::{qmc1_transform, V1_KEY_SIZE};
 use crate::QmcCryptoError;
 
 #[pyclass]
@@ -38,7 +38,7 @@ impl QMC2Map {
             *datum = qmc1_transform(&self.key, *datum, offset + i);
         }
     }
-    
+
     // 用于内部创建，不需要 PyResult
     pub fn new_internal(key: Vec<u8>) -> Result<Self, QmcCryptoError> {
         let key = key_compress(&key)?;

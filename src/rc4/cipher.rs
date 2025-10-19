@@ -33,16 +33,13 @@ impl QMC2RC4 {
         }
     }
 
-    // PyO3 方法接受 PyByteArray 的 Bound 引用
     pub fn decrypt(&self, data: Bound<'_, PyByteArray>, offset: usize) -> PyResult<()> {
-        // 使用 as_bytes_mut 方法获取可变字节切片
         let buffer = unsafe { data.as_bytes_mut() };
         self.decrypt_internal(buffer, offset);
         Ok(())
     }
 }
 
-// 将内部实现方法移出 #[pymethods] 块
 impl QMC2RC4 {
     fn process_first_segment(&self, data: &mut [u8], offset: usize) {
         let n = self.key.len();

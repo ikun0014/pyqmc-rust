@@ -13,4 +13,5 @@ classifiers = [
 dynamic = ["version"]
 
 [tool.maturin]
+python-source = "pysrc"
 features = ["pyo3/extension-module"]
