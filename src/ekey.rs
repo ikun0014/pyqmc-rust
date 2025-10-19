@@ -5,7 +5,6 @@ use tc_tea::TcTeaError;
 use thiserror::Error;
 use utils::base64;
 
-/// Base64 encoded prefix: "QQMusic EncV2,Key:"
 const EKEY_V2_PREFIX: &[u8; 24] = b"UVFNdXNpYyBFbmNWMixLZXk6";
 const EKEY_V2_KEY1: [u8; 16] = [
     0x33, 0x38, 0x36, 0x5A, 0x4A, 0x59, 0x21, 0x40, 0x23, 0x2A, 0x24, 0x25, 0x5E, 0x26, 0x29, 0x28,
@@ -51,7 +50,6 @@ pub fn decrypt_v1(ekey: &[u8]) -> Result<Vec<u8>, EKeyDecryptError> {
     let ekey = base64::decode(ekey)?;
     let (header, cipher) = ekey.split_at(8);
 
-    // tea_key: interleave a byte from each stream
     let tea_key = EKEY_SIMPLE_KEY
         .iter()
         .zip(header)
